@@ -1,63 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Test</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</head>
-<body>
-	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-		<a href="#" class="navbar-brand">Navbar</a>
+{% extends 'home/base.html' %}
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+{% block title %}
+Home
+{% endblock %}
 
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			<ul class="navbar-nav ml-auto">
-				<li class="navbar-item">
-					<a href="#" class="nav-link">Link</a>
-				</li>
-				<li class="navbar-item">
-					<a href="#" class="nav-link">Link</a>
-				</li>
-				<li class="navbar-item">
-					<a href="#" class="nav-link">Link</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<div class="container-fluid p-0" 
-	     style="height: 300px;
-	            overflow: hidden;
-	            position: relative;">
-		<p class="display-3 text-uppercase text-white" 
-		   style="position: absolute;
-		          left: 50%;
-		          top: 50%;
-		          transform: translate(-50%,-50%);">BlogName</p>
-		<img src="https://defaultcustomheadersdata.files.wordpress.com/2016/07/blur.jpg">
-	</div>
-
+{% block content %}
 	<div class="container-fluid mt-5">
 		<div class="row">
-			<div class="col col-md">
+			<div class="col-lg d-flex justify-content-center">
 				<div class="border" style="max-width: 500px">
 					<p class="h3 text-dark p-3">Title</p>
 					<img src="http://hdqwalls.com/wallpapers/python-programming-syntax-4k-1s.jpg" 
 					     style="width:100%;
 					            height: auto;">
 					<p class="px-3 pt-3 text-dark m-0">Mix and match multiple content types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and a list group—all wrapped in a fixed-width card.</p>
-					<p class="small text-secondary font-weight-bold px-3 m-0">30-09-2019 09:09:09</p>
-					<a class="btn btn-primary m-3" href="#">View More</a>
+					<a class="text-primary p-3" href="#">Continue Reading -></a>
+					<p class="small text-secondary font-weight-bold p-3 m-0 mt-4">30-09-2019 09:09:09</p>
 				</div>
 			</div>
 		</div>
+
+		<center><a href="#" class="btn btn-dark mt-3">Bài cũ hơn</a></center>
 	</div>
-</body>
-</html>
+
+{% endblock %}
