@@ -1,23 +1,25 @@
 {% extends 'home/base.html' %}
 
 {% block title %}
-Home
+	{{ title }}
 {% endblock %}
 
 {% block content %}
 	<div class="container-fluid mt-5">
 		<div class="row">
+			{% for post in posts %}
 			<div class="col-lg d-flex justify-content-center">
 				<div class="border" style="max-width: 500px">
-					<p class="h3 text-dark p-3">Title</p>
-					<img src="http://hdqwalls.com/wallpapers/python-programming-syntax-4k-1s.jpg" 
+					<p class="h3 text-dark p-3">{{ post.title }}</p>
+					<img src="{{ post.image }}" 
 					     style="width:100%;
 					            height: auto;">
-					<p class="px-3 pt-3 text-dark m-0">Mix and match multiple content types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and a list group—all wrapped in a fixed-width card.</p>
+					<p class="px-3 pt-3 text-dark m-0">{{ post.content }}</p>
 					<a class="text-primary p-3" href="#">Continue Reading -></a>
-					<p class="small text-secondary font-weight-bold p-3 m-0 mt-4">30-09-2019 09:09:09</p>
+					<p class="small text-secondary font-weight-bold p-3 m-0 mt-4">{{ post.time }}</p>
 				</div>
 			</div>
+			{% endfor %}
 		</div>
 
 		<center><a href="#" class="btn btn-dark mt-3">Bài cũ hơn</a></center>

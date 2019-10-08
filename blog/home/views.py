@@ -1,5 +1,11 @@
 from django.shortcuts import render
+from .models import Post
+from django.views import View
 
 # Create your views here.
-def index(request):
-	return render(request, 'home/index.html')
+
+class HomeView(View):
+	template = 'home/index.html'
+	def get(self, request):
+		posts = Post.objects.all().order_by('-time')
+		return render(request, self.template, {'posts':posts,'title':'Home'})

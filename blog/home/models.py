@@ -9,4 +9,4 @@ class Post(models.Model):
     time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.title
+        return self.uuid
