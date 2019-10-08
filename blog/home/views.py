@@ -8,4 +8,14 @@ class HomeView(View):
 	template = 'home/index.html'
 	def get(self, request):
 		posts = Post.objects.all().order_by('-time')
-		return render(request, self.template, {'posts':posts,'title':'Home'})
+
+		return render(request, 
+					  self.template,
+					  {'title':'Home','posts':posts})
+
+class PostView(View):
+	template = 'home/post.html'
+	def get(self, request, uuid):
+		print(uuid)
+		post = Post.objects.get(uuid=uuid)
+		return render(request, self.template, {'post':post})

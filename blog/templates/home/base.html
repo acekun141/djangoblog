@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html class="bg-barkground">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,8 +10,9 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="{% static 'preloader.css' %}">
+	<link rel="stylesheet" href="{% static 'card.css' %}">
 </head>
-<body>
+<body class="bg-barkground">
 
 	<div class="preloader">
 		<div class="lds-ripple"><div></div><div></div></div>
@@ -19,7 +20,7 @@
 
 
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-		<a href="#" class="navbar-brand">Django Blog</a>
+		<a href="{% url 'homepage' %}" class="navbar-brand">Django Blog</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>
@@ -58,7 +59,7 @@
 				<p class="text-secondary font-weight-bold m-0">Nghề nghiệp: Sinh viên</p>
 			</div>
 			<div class="col-md mb-3">
-				<p class="text-uppercase text-white font-weight-bold">Kết nới với tôi</p>
+				<p class="text-uppercase text-white font-weight-bold">Kết nối với tôi</p>
 				<a href="#" class="m-0">Facebook</a>
 			</div>
 		</div>
