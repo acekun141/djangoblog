@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+    <form class="bg-white p-3 rounded shadow" action="" method="POST" accept-charset="utf-8" style="max-width: 450px;
+                                                                                                    min-width: 450px;">
+        {% csrf_token %}
+        <p class="h3 text-center mb-3">Log in</p>
+        {% if error %}
+            <p style="color:red">Tài khoản hoặc mật khẩu không hợp lệ!</p>
+        {% endif %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control" id="username" name="username" type="text">
+        </div>
+        <div class="form-group">
+            <label for="password1">password</label>
+            <input class="form-control" id="password1" name="password" type="password1">
+        </div>
+        <div class="form-group">
+            <label for="password2">password</label>
+            <input class="form-control" id="password2" name="password" type="password2">
+        </div>
+        <button class="btn btn-success btn-block">Log in</button>
+    </form>
+</div>
+{% endblock %}
