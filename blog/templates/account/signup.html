@@ -11,21 +11,27 @@
         {% csrf_token %}
         <p class="h3 text-center mb-3">Sign Up</p>
         {% if error %}
-            <p style="color:red">Tài khoản hoặc mật khẩu không hợp lệ!</p>
+            <p class="text-center text-danger">{{ error }}</p>
         {% endif %}
         <div class="form-group">
-            <label for="username">Username</label>
+            <label class="m-0 text-secondary font-weight-bold" for="username">Username</label>
             <input class="form-control" id="username" name="username" type="text">
         </div>
         <div class="form-group">
-            <label for="password1">Password</label>
+            <label class="m-0 text-secondary font-weight-bold" for="email">Email</label>
+            <input class="form-control" id="email" name="email" type="email">
+        </div>
+        <div class="form-group">
+            <label class="m-0 text-secondary font-weight-bold" for="password1">Password</label>
             <input class="form-control" id="password1" name="password1" type="password">
         </div>
         <div class="form-group">
-            <label for="password2">Password</label>
+            <label class="m-0 text-secondary font-weight-bold" for="password2">Password</label>
             <input class="form-control" id="password2" name="password2" type="password">
         </div>
-        <button class="btn btn-success btn-block">Sign up</button>
+        <button class="btn btn-success btn-lg btn-block">Sign up</button>
+        <button class="btn btn-danger btn-lg btn-block mb-3">Sign up with Google</button>
+        <center><a href="{% url 'signin' %}">Sign In</a></center>
     </form>
 </div>
 {% endblock %}

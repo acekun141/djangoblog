@@ -6,13 +6,13 @@
 
 {% block content %}
 	<div class="container-fluid mt-5">
-		<div class="d-flex flex-wrap justify-content-around">
+		<div class="d-flex flex-wrap justify-content-center">
 			{% for post in posts %}
 			<div class="m-3 rounded bg-white shadow">
 				<div style="max-width: 500px">
-					<p class="h3 text-dark p-3">{{ post.title }}</p>
+					<p class="h3 text-dark p-3 font-weight-bold">{{ post.title }}</p>
 					<div class="box-img">
-					<img src="media/{{ post.image }}" 
+					<img src="/media/{{ post.image }}" 
 					     style="width:100%;
 								height: auto;">
 					</div>

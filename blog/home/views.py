@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Post
 from django.views import View
+from .forms import PostForm
+import uuid
 
 # Create your views here.
 
@@ -18,4 +20,21 @@ class PostView(View):
 	def get(self, request, uuid):
 		print(uuid)
 		post = Post.objects.get(uuid=uuid)
+		
 		return render(request, self.template, {'post':post})
+
+class CreatePost(View):
+	template = 'home/createpost.html'
+	form = PostForm()
+	def get(self, request):
+
+		return render(request, self.template, {'form':self.form})
+
+	def post(self, request):
+		postform = PostForm(request.POST, request.FILES)
+		if postform.is_valid():
+			postform.save()
+
+		return render(request, self.template, {'form':self.form})
+
+

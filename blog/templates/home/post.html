@@ -5,16 +5,16 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="m-3 rounded bg-white shadow">
+<div class="container mt-5">
+    <div class="rounded bg-white shadow">
         <div class="border">
-            <p class="h3 text-dark p-3">{{ post.title }}</p>
+            <p class="h3 text-dark text-uppercase font-weight-bold p-4 m-0">{{ post.title }}</p>
             <div>
-            <img src="media/{{ post.image }}" 
+            <img src="/media/{{ post.image }}" 
                  style="width:100%;
                         height: auto;">
             </div>
-            <p class="px-3 pt-3 text-dark m-0">{{ post.content}}</p>
+            <p class="px-4 pt-3 text-dark m-0">{{ post.content}}</p>
             <p class="small text-secondary font-weight-bold p-3 m-0 mt-4">{{ post.time }}</p>
         </div>
     </div>

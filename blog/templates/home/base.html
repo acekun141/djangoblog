@@ -28,12 +28,18 @@
 
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav ml-auto">
+			{% if user.username %}
 				<li class="navbar-item">
-					<a href="#" class="nav-link">Log in</a>
+					<a href="{% url 'logout' %}" class="nav-link">Log out</a>
+				</li>
+			{% else %}
+				<li class="navbar-item">
+					<a href="{% url 'signin' %}" class="nav-link">Sign In</a>
 				</li>
 				<li class="navbar-item">
-					<a href="#" class="nav-link">Log out</a>
+					<a href="{% url 'signup' %}" class="nav-link">Sign Up</a>
 				</li>
+			{% endif %}
 			</ul>
 		</div>
 	</nav>

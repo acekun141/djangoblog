@@ -14,14 +14,16 @@
             <p style="color:red">Tài khoản hoặc mật khẩu không hợp lệ!</p>
         {% endif %}
         <div class="form-group">
-            <label for="username">Username</label>
+            <label class="font-weight-bold text-secondary m-0" for="username">Username</label>
             <input class="form-control" id="username" name="username" type="text">
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
+            <label class="font-weight-bold text-secondary m-0" for="password">Password</label>
             <input class="form-control" id="password" name="password" type="password">
         </div>
-        <button class="btn btn-success btn-block">Log in</button>
+        <button class="btn btn-success btn-lg btn-block">Log in</button>
+        <button class="btn btn-danger btn-lg btn-block mb-3">Log in with Google</button>
+        <center><a href="{% url 'signup' %}">Sign up</a></center>
     </form>
 </div>
 {% endblock %}
