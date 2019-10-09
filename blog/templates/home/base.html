@@ -11,6 +11,15 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="{% static 'preloader.css' %}">
 	<link rel="stylesheet" href="{% static 'card.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+	<style type="text/css">
+		html {
+			font-family: 'Lato', sans-serif!important;
+		}
+		body {
+			font-family: 'Lato', sans-serif!important;
+		}
+	</style>
 </head>
 <body class="bg-barkground">
 
@@ -19,7 +28,7 @@
 	</div>
 
 
-	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark py-3">
 		<a href="{% url 'homepage' %}" class="navbar-brand">Django Blog</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -29,6 +38,12 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav ml-auto">
 			{% if user.username %}
+				<li class="navbar-item">
+					<p class="nav-link text-white m-0">{{ user.username }}</p>
+				</li>
+				<li class="navbar-item">
+					<a href="{% url 'createpost' %}" class="nav-link">Create</a>
+				</li>
 				<li class="navbar-item">
 					<a href="{% url 'logout' %}" class="nav-link">Log out</a>
 				</li>
@@ -44,7 +59,7 @@
 		</div>
 	</nav>
 
-	<div class="container-fluid p-0" 
+	<div class="container-fluid p-0 bg-dark" 
 	     style="height: 300px;
 	            overflow: hidden;
 	            position: relative;">
@@ -53,8 +68,15 @@
 		          left: 50%;
 				  top: 50%;
 				  font-size: 50pt;
-		          transform: translate(-50%,-50%);">BlogName</p>
-		<img src="https://defaultcustomheadersdata.files.wordpress.com/2016/07/blur.jpg">
+		          transform: translate(-50%,-50%);
+		          z-index: 10">BlogName</p>
+		<img src="https://defaultcustomheadersdata.files.wordpress.com/2016/07/blur.jpg"
+			 style="position: absolute;
+			 		left:50%;
+			 		top:50%;
+			 		transform: translate(-50%,-50%);
+			 		opacity: 0.6;">
+		
     </div>
     {% block content %}{% endblock %}
 
