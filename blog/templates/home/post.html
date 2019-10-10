@@ -8,7 +8,12 @@
 <div class="container mt-5">
     <div class="rounded bg-white shadow">
         <div class="border">
-            <p class="h3 text-dark text-uppercase font-weight-bold p-4 m-0">{{ post.title }}</p>
+            <div class="d-flex justify-content-between p-4">
+                <p class="h3 text-dark text-uppercase font-weight-bold m-0">{{ post.title }}</p>
+                {% if user.username %}
+                    <a class="btn btn-primary" href="{% url 'editpost' post.uuid %}">Edit</a>
+                {% endif %}
+            </div>
             <div>
             <img src="/media/{{ post.image }}" 
                  style="width:100%;

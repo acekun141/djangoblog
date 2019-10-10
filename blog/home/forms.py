@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Post
+from .models import Post, Image
 
 class PostForm(ModelForm):
 	class Meta:
@@ -14,3 +14,7 @@ class PostForm(ModelForm):
 					'class':'form-control',
 				}),
 		}
+class SaveImage(ModelForm):
+	class Meta:
+		model = Image
+		fields = ['image']

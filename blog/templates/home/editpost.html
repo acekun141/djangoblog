@@ -15,11 +15,11 @@
 			</div>
 			<div class="form-group">
 				<label class="m-0 text-secondary font-weight-bold">Content</label>
-				<textarea type="text" name="content" class="form-control">{{post.content}}</textarea>
+				<textarea type="text" name="content" class="form-control" rows=20>{{post.content}}</textarea>
 			</div>
 			<div class="form-group">
 				<label class="m-0 text-secondary font-weight-bold">Image</label>
-				<input type="file" name="image" accept="image/*" required="" id="id_image">
+				{{ form.image }}
 			</div>
 			<button type="submit" value="submit" class="btn btn-success btn-lg btn-block">Submit</button>
 		</form>
