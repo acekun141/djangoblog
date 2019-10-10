@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from .models import Post, Image
@@ -12,6 +13,10 @@ class HomeView(View):
 	template = 'home/index.html'
 	def get(self, request):
 		posts = Post.objects.all().order_by('-time')
+		paginator = Paginator(posts, 2)
+
+		page = request.GET.get('page')
+		posts = paginator.get_page(page)
 
 		return render(request, 
 					  self.template,
@@ -64,9 +69,9 @@ class EditPost(View):
 			image = SaveImage(request.POST ,request.FILES)
 			if image.is_valid():
 				new_image = image.save()
-				post = post.objects.get(uuid=uuid)
+				post = Post.objects.get(uuid=uuid)
 				if os.path.isfile(post.image.path):
-					os.remove(path)
+					os.remove(post.image.path)
 				Post.objects.filter(uuid=uuid).update(title=new_title,
 													  content=new_content,
 													  image=new_image.image)
@@ -77,6 +82,18 @@ class EditPost(View):
 			print(value)
 
 			return HttpResponseRedirect('/')
-		
 
+class DeletePost(View):
 
+	def get(self, request, uuid):
+		if not request.user:
+
+			return HttpResponseRedirect('/')
+		else:
+			try:
+				Post.objects.get(uuid=uuid).delete()
+
+				return HttpResponseRedirect('/')
+			except:
+
+				return HttpResponseRedirect('/')

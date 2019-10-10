@@ -5,13 +5,38 @@
 {% endblock %}
 
 {% block content %}
+<div class="gr-button"
+     style="position: fixed;
+            display:none;
+            background:rgba(0,0,0,0.4);
+            height: 100%;
+            width: 100%;
+            left:0;
+            top:0;
+            z-index: 9999;">
+    <div class="p-3 bg-white rounded" 
+         style="width: 300px;
+                position:absolute;
+                left: 50%;
+                top:50%;
+                transform: translate(-50%,-50%);">
+        <p class="text-danger font-weight-bold text-center">Delete Post</p>
+        <center><div class="d-inline">
+            <a class="btn btn-danger" href="{% url 'deletepost' post.uuid %}">Delete</a>
+            <p class="btn btn-secondary m-0" id="cancel">Cancel</p>
+        </div></center>
+    </div>
+</div>
 <div class="container mt-5">
     <div class="rounded bg-white shadow">
         <div class="border">
             <div class="d-flex justify-content-between p-4">
                 <p class="h3 text-dark text-uppercase font-weight-bold m-0">{{ post.title }}</p>
                 {% if user.username %}
-                    <a class="btn btn-primary" href="{% url 'editpost' post.uuid %}">Edit</a>
+                    <div>
+                        <p class="btn btn-danger m-0" id="delete_button">Delete</p>
+                        <a class="btn btn-primary" href="{% url 'editpost' post.uuid %}">Edit</a>
+                    </div>
                 {% endif %}
             </div>
             <div>
@@ -19,9 +44,21 @@
                  style="width:100%;
                         height: auto;">
             </div>
-            <p class="px-4 pt-3 text-dark m-0">{{ post.content}}</p>
+            <div class="px-4 pt-3">
+                {{ post.content|safe }}
+            </div>
             <p class="small text-secondary font-weight-bold p-3 m-0 mt-4">{{ post.time }}</p>
         </div>
     </div>
 </div>
+{% endblock %}
+{% block script %}
+<script type="text/javascript">
+    $("#delete_button").on('click', function(){
+        $('.gr-button').fadeIn('slow');
+    });
+    $("#cancel").on('click', function(){
+        $('.gr-button').fadeOut('slow');
+    });
+</script>
 {% endblock %}

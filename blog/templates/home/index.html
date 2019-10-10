@@ -16,15 +16,25 @@
 					     style="width:100%;
 								height: auto;">
 					</div>
-					<p class="px-3 pt-3 text-dark m-0">{{ post.content|truncatewords:50 }}</p>
+					<div class="px-3 pt-3">
+						{{ post.content|safe|truncatewords:50 }}
+					</div>
 					<a class="text-primary p-3" href="{% url 'singlepost' post.uuid %}">Continue Reading -></a>
 					<p class="small text-secondary font-weight-bold p-3 m-0 mt-4">{{ post.time }}</p>
 				</div>
 			</div>
 			{% endfor %}
 		</div>
-
-		<center><a href="#" class="btn btn-dark mt-3">Bài cũ hơn</a></center>
+	</div>
+	<div class="d-flex justify-content-center mt-5">
+		{% if posts.has_previous %}
+		<a href="?page={{ posts.previous_page_number }}" class="btn btn-primary m-1">&laquo; Previous</a>
+		{% endif %}
+		<a href="?page=1" class="btn btn-primary m-1">1</a>
+		<a href="?page={{ posts.paginator.num_pages }}" class="btn btn-primary m-1">{{ posts.paginator.num_pages }}</a>
+		{% if posts.has_next %}
+		<a href="?page={{ posts.next_page_number }}" class="btn btn-primary m-1">Next &raquo;</a>
+		{% endif %}
 	</div>
 
 {% endblock %}

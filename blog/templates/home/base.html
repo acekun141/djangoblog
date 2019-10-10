@@ -20,6 +20,8 @@
 			font-family: 'Lato', sans-serif!important;
 		}
 	</style>
+	{% block header %}
+	{% endblock %}
 </head>
 <body class="bg-barkground">
 
@@ -100,4 +102,5 @@
 		$('.preloader').fadeOut('slow');
 	});
 </script>
+{% block script %}{% endblock %}
 </html>
